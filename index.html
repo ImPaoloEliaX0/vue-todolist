@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Paolo Elia">
+    <title>to do</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="container" id="app">
+        <h2>cosa devi fare?</h3>
+        <div class="center">
+            <input v-on:keyup.enter="addTodo" type="text" v-model="newtodo">
+            <button @click="addTodo">aggiungi alla lista</button>
+        </div>
+        <div class="list">
+            <ul>
+                <li v-for="(todo,index) in todos">
+                    <span @click="check(index)" :class=" todo.line == true ? 'strike-through' : 'text-none' ">{{todo.testo}}</span>
+                    <i @click="removeTodo(index)" class="fa-solid fa-xmark"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    
+    <script src="main.js"></script>
+
+</body>
+</html>
